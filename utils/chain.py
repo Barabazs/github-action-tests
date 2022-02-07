@@ -311,5 +311,4 @@ def get_function_signature(func_name, abi):
 
     input_types = [obj["type"] for obj in filtered["inputs"]]
     output_types = [obj["type"] for obj in filtered["outputs"]]
-    return ""
     return f"{func_name}({','.join(input_types)})({','.join(output_types)})"
