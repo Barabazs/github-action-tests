@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="github-action-tests",
-    version="0.0.2",
+    version="0.0.3",
     packages=find_packages(exclude=["tests", "tests.*"]),
     url="https://github.com/Barabazs/github-action-tests",
     license="MIT",
