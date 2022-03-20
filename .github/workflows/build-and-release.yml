@@ -15,18 +15,17 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-        python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: |
-        python -m pip install --upgrade pip
-        python -m pip install --upgrade wheel
-      
-       - name: Build wheels
-         run: python setup.py bdist_wheel          
-          
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade wheel
+
+      - name: Build wheels
+        run: python setup.py bdist_wheel
+
       - name: Release to Github
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*
-          
