@@ -15,16 +15,16 @@ from utils import config
 @patch(
     "utils.config.config",
     {
-        "arbitrum_web3_provider": os.environ.get("ARBITRUM_ENDPOINT"),
-        "avalanche_web3_provider": os.environ.get("AVALANCHE_ENDPOINT"),
-        "binance_web3_provider": os.environ.get("BINANCE_ENDPOINT"),
-        "fantom_web3_provider": os.environ.get("FANTOM_ENDPOINT"),
-        "optimism_web3_provider": os.environ.get("OPTIMISM_ENDPOINT"),
-        "polygon_web3_provider": os.environ.get("POLYGON_ENDPOINT"),
-        "web3_provider": os.environ.get("WEB3_PROVIDER"),
-        "ipfs_gateway": os.environ.get("IPFS_GATEWAY"),
-        "opensea_api_key":os.environ.get("opensea_api_key"),
-        "moralis_api_key":os.environ.get("moralis_api_key")
+        "arbitrum_web3_provider": os.environ["ARBITRUM_ENDPOINT"],
+        "avalanche_web3_provider": os.environ["AVALANCHE_ENDPOINT"],
+        "binance_web3_provider": os.environ["BINANCE_ENDPOINT"],
+        "fantom_web3_provider": os.environ["FANTOM_ENDPOINT"],
+        "optimism_web3_provider": os.environ["OPTIMISM_ENDPOINT"],
+        "polygon_web3_provider": os.environ["POLYGON_ENDPOINT"],
+        "web3_provider": os.environ["WEB3_PROVIDER"],
+        "ipfs_gateway": os.environ["IPFS_GATEWAY"],
+        "opensea_api_key":os.environ["opensea_api_key"],
+        "moralis_api_key":os.environ["moralis_api_key"]
     },
 )
 class TestUtils(unittest.TestCase):
