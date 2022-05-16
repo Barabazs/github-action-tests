@@ -23,8 +23,8 @@ from utils import config
         "polygon_web3_provider": os.environ["POLYGON_ENDPOINT"],
         "web3_provider": os.environ["WEB3_PROVIDER"],
         "ipfs_gateway": os.environ["IPFS_GATEWAY"],
-        "opensea_api_key":os.environ["opensea_api_key"],
-        "moralis_api_key":os.environ["moralis_api_key"]
+        "opensea_api_key":os.environ["OPENSEA_API_KEY"],
+        "moralis_api_key":os.environ["MORALIS_API_KEY"]
     },
 )
 class TestUtils(unittest.TestCase):
