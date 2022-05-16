@@ -28,8 +28,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade tox
       - name: Test with tox
-        run: |
-          tox
         env: 
           ARBITRUM_ENDPOINT: ${{ secrets.ARBITRUM_ENDPOINT }}
           AVALANCHE_ENDPOINT: ${{ secrets.AVALANCHE_ENDPOINT }}
@@ -41,4 +39,5 @@ jobs:
           OPTIMISM_ENDPOINT: ${{ secrets.OPTIMISM_ENDPOINT }}
           POLYGON_ENDPOINT: ${{ secrets.POLYGON_ENDPOINT }}
           WEB3_PROVIDER: ${{ secrets.WEB3_PROVIDER }}
-
+        run: |
+          tox
