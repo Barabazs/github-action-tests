@@ -30,3 +30,6 @@ jobs:
       - name: Test with tox
         run: |
           tox
+        env: 
+          WEB3_PROVIDER: ${{ secrets.WEB3_PROVIDER }}
+          ARBITRUM_ENDPOINT: ${{ secrets.ARBITRUM_ENDPOINT }}
