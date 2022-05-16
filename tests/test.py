@@ -11,7 +11,6 @@ from utils import main
 from utils import config
 
 
-
 @patch(
     "utils.config.config",
     {
@@ -23,8 +22,8 @@ from utils import config
         "polygon_web3_provider": os.environ["POLYGON_ENDPOINT"],
         "web3_provider": os.environ["WEB3_PROVIDER"],
         "ipfs_gateway": os.environ["IPFS_GATEWAY"],
-        "opensea_api_key":os.environ["OPENSEA_API_KEY"],
-        "moralis_api_key":os.environ["MORALIS_API_KEY"]
+        "opensea_api_key": os.environ["OPENSEA_API_KEY"],
+        "moralis_api_key": os.environ["MORALIS_API_KEY"],
     },
 )
 class TestUtils(unittest.TestCase):
@@ -34,7 +33,6 @@ class TestUtils(unittest.TestCase):
 
     def test_config(self):
         print(config.config)
-
 
 
 if __name__ == "__main__":  # pragma: no cover
