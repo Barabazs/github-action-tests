@@ -1,4 +1,4 @@
-import config
+from utils import config
 
 def hello():
     return "GM World!"
