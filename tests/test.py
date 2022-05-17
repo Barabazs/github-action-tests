@@ -33,6 +33,7 @@ class TestUtils(unittest.TestCase):
 
     def test_config(self):
         print(config.config)
+        print(len(config.config.get("avalanche_web3_provider"))
 
 
 if __name__ == "__main__":  # pragma: no cover
