@@ -12,7 +12,7 @@ from utils import config
 
 
 @patch(
-    "config.config",
+    "main.config.config",
     {
         "arbitrum_web3_provider": os.environ["ARBITRUM_ENDPOINT"],
         "avalanche_web3_provider": os.environ["AVALANCHE_ENDPOINT"],
