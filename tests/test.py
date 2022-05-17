@@ -31,8 +31,11 @@ class TestUtils(unittest.TestCase):
         self.assertIsInstance(main.hello(), str)
         self.assertEqual(main.hello(), "GM World!")
 
-    def test_config(self):
+    def test_config(
+        self,
+    ):
         print(main.use_config())
+
 
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()
