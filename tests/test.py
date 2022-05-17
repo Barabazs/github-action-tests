@@ -32,9 +32,7 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(main.hello(), "GM World!")
 
     def test_config(self):
-        print(config.config)
-        print(len(config.config.get("avalanche_web3_provider")))
-
+        print(main.use_config())
 
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()
