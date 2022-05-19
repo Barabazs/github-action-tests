@@ -10,7 +10,6 @@ import unittest
 from utils import main
 
 
-
 class TestUtils(unittest.TestCase):
     def test_utils(self):
         self.assertIsInstance(main.hello(), str)
