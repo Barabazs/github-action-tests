@@ -20,8 +20,8 @@ class TestUtils(unittest.TestCase):
     ):
         print(main.use_config())
 
-    def another_test(self):
-        self.assertEqual(main.use_config(), "test-ENDPOINT")
+    def test_this(self):
+        self.assertEqual(main.use_config(), "lorem ipsum")
 
 
 if __name__ == "__main__":  # pragma: no cover
