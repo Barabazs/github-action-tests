@@ -21,7 +21,7 @@ class TestUtils(unittest.TestCase):
         print(main.use_config())
 
     def test_this(self):
-        self.assertEqual(main.use_config(), "test-ENDPOINT")
+        self.assertEqual(main.use_config(), "lorem ipsum")
 
 
 if __name__ == "__main__":  # pragma: no cover
