@@ -1,6 +1,9 @@
 name: Test
 
-on: [push, pull_request]
+on:
+  pull_request_target:
+  branches: [ main ]
+# [push, pull_request]
 
 jobs:
   test:
