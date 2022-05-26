@@ -6,4 +6,5 @@ def hello():
 
 
 def use_config():
+    print(config.ENDPOINT)
     return config.ENDPOINT
