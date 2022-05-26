@@ -1,9 +1,14 @@
 from setuptools import setup, find_packages
 
+
+with open("requirements.txt") as f:
+    required = f.read().splitlines()
+
 setup(
     name="github-action-tests",
     version="0.0.5",
     packages=find_packages(exclude=["tests", "tests.*"]),
+    install_requires=required,
     url="https://github.com/Barabazs/github-action-tests",
     license="MIT",
     author="Barabazs",
