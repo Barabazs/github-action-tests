@@ -19,7 +19,7 @@ class TestUtils(unittest.TestCase):
         self,
     ):
         print(main.use_config())
-    
+
     def another_test(self):
         self.assertEqual(main.use_config(), "test-ENDPOINT")
 
