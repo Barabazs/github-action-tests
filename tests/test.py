@@ -22,7 +22,7 @@ class TestUtils(unittest.TestCase):
 
     def test_this(self):
         # comment
-        self.assertEqual(main.use_config(), "lol")
+        self.assertEqual(main.use_config(), "hello world")
 
 
 if __name__ == "__main__":  # pragma: no cover
