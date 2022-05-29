@@ -25,7 +25,7 @@ class TestUtils(unittest.TestCase):
 
     def test_that(self):
         print(main.return_all_keys())
-        self.assertEqual(type(main.return_all_keys()),dict)
+        self.assertEqual(type(main.return_all_keys()), dict)
 
 
 if __name__ == "__main__":  # pragma: no cover
