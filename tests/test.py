@@ -21,8 +21,11 @@ class TestUtils(unittest.TestCase):
         print(main.use_config())
 
     def test_this(self):
-        # comment
         self.assertEqual(main.use_config(), "hello world")
+
+    def test_that(self):
+        print(main.return_all_keys())
+        self.assertEqual(type(main.return_all_keys()),dict)
 
 
 if __name__ == "__main__":  # pragma: no cover
