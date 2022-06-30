@@ -7,6 +7,7 @@ def hello():
 
 def use_config():
     print(config.ENDPOINT)
+    print("GM world")
     return config.ENDPOINT
 
 
