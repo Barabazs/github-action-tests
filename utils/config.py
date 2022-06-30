@@ -7,7 +7,7 @@ config = dotenv_values(f"{ROOT_DIR}/.env")
 
 
 """
-ABI endpoints
+ABI endpoints + test comment
 """
 ABI_ENDPOINT = "https://api.etherscan.io/api?module=contract&action=getabi&address="
 ARBITRUM_ABI_ENDPOINT = (
