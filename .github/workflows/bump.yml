@@ -11,22 +11,10 @@ jobs:
           echo A comment on PR $NUMBER
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
-        env:
-          NUMBER: ${{ github.event.issue.number }}
-          INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
-          ISSUE_COMMENT: ${{ github.event.comment.body }}
+          echo VERSION=$(grep "__version__" $ISSUE_COMMENT | awk -F= '{print $2}' | tr -d ' "' | tr -d "'")
 
-  issue_commented:
-    # This job only runs for issue comments
-    name: Issue comment
-    if: ${{ !github.event.issue.pull_request }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo A comment on issue $NUMBER
-          echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
-          echo ISSUE_COMMENT: $ISSUE_COMMENT
         env:
           NUMBER: ${{ github.event.issue.number }}
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
           ISSUE_COMMENT: ${{ github.event.comment.body }}
+          
