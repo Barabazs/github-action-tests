@@ -11,7 +11,8 @@ jobs:
           echo A comment on PR $NUMBER
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
-          echo VERSION: $VERSION
+          echo ${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
+
 
         env:
           NUMBER: ${{ github.event.issue.number }}
