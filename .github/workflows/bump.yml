@@ -11,10 +11,11 @@ jobs:
           echo A comment on PR $NUMBER
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
-          echo VERSION=$(grep "__version__" $ISSUE_COMMENT | awk -F= '{print $2}' | tr -d ' "' | tr -d "'")
+          echo $VERSION
 
         env:
           NUMBER: ${{ github.event.issue.number }}
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
           ISSUE_COMMENT: ${{ github.event.comment.body }}
+          VERSION: $(grep "__version__" $ISSUE_COMMENT | awk -F= '{print $2}' | tr -d ' "' | tr -d "'")
           
