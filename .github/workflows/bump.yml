@@ -11,8 +11,8 @@ jobs:
           echo A comment on PR $NUMBER
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
-          echo ${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
-          echo $TEMP
+          VERSION=${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
+          echo $VERSION
 
 
         env:
