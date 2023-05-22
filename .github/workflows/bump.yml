@@ -9,10 +9,12 @@ jobs:
     steps:
       - run: |
           echo A comment on PR $NUMBER
-          echo $BODY
+          echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
+          echo ISSUE_COMMENT: $ISSUE_COMMENT
         env:
           NUMBER: ${{ github.event.issue.number }}
-          BODY: ${{ github.event.issue.body }}
+          INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
+          ISSUE_COMMENT: ${{ github.event.issue_comment }}
 
   issue_commented:
     # This job only runs for issue comments
@@ -22,7 +24,9 @@ jobs:
     steps:
       - run: |
           echo A comment on issue $NUMBER
-          echo $BODY
+          echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
+          echo ISSUE_COMMENT: $ISSUE_COMMENT
         env:
           NUMBER: ${{ github.event.issue.number }}
-          BODY: ${{ github.event.issue.body }}
+          INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
+          ISSUE_COMMENT: ${{ github.event.issue_comment }}
