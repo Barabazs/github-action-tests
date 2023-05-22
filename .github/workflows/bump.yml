@@ -9,9 +9,10 @@ jobs:
     steps:
       - run: |
           echo A comment on PR $NUMBER
-          echo ${{ github.event.issue_comment.body }}
+          echo $BODY
         env:
           NUMBER: ${{ github.event.issue.number }}
+          BODY: ${{ github.event.issue.body }}
 
   issue_commented:
     # This job only runs for issue comments
@@ -21,6 +22,7 @@ jobs:
     steps:
       - run: |
           echo A comment on issue $NUMBER
-          echo ${{ github.event.issue_comment.body }}
+          echo $BODY
         env:
           NUMBER: ${{ github.event.issue.number }}
+          BODY: ${{ github.event.issue.body }}
