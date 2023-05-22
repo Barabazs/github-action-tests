@@ -11,6 +11,7 @@ jobs:
           echo A comment on PR $NUMBER
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
+          # remove prefix up to and including __version__ = " and last quote
           VERSION=${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
           echo $VERSION
 
@@ -19,8 +20,6 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
           ISSUE_COMMENT: ${{ github.event.comment.body }}
-          # remove prefix up to and including __version__ = " and last quote
-          TEMP: ${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
 
 
           
