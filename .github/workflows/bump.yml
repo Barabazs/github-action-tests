@@ -12,6 +12,7 @@ jobs:
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
           echo ${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
+          echo $TEMP
 
 
         env:
@@ -19,7 +20,7 @@ jobs:
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
           ISSUE_COMMENT: ${{ github.event.comment.body }}
           # remove prefix up to and including __version__ = " and last quote
-          VERSION: ${$ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
+          TEMP: ${ISSUE_COMMENT#__version__ = \"}; VERSION=${VERSION%\"}
 
 
           
