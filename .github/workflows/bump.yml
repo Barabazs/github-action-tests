@@ -35,7 +35,7 @@ jobs:
               # Construct the new version
               NEW_VERSION="$MAJOR.$MINOR.$PATCH"
               echo "$NEW_VERSION"
-        fi
+          fi
     
         env:
           NUMBER: ${{ github.event.issue.number }}
