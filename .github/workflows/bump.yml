@@ -22,12 +22,25 @@ jobs:
               git add .
               git commit -m "chore: bump version"
               git push
+          else
+              VERSION=$(grep "__version__" $VERSION_FILE | awk -F= '{print $2}' | tr -d ' "' | tr -d "'")
+              # Split the version into major, minor, and patch
+              IFS='.' read -ra ADDR <<< "$VERSION"
+              MAJOR=${ADDR[0]}
+              MINOR=${ADDR[1]}
+              PATCH=${ADDR[2]}
+              
+              # Increment the minor version
+              ((MINOR++))
+              
+              # Construct the new version
+              NEW_VERSION="$MAJOR.$MINOR.$PATCH"
+              
+              # Replace the old version with the new version in the python file
+              sed -i "s/__version__ = \".*\"/__version__ = \"$NEW_VERSION\"/g" $VERSION_FILE
           fi
         env:
           NUMBER: ${{ github.event.issue.number }}
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
           ISSUE_COMMENT: ${{ github.event.comment.body }}
           VERSION_FILE: "utils/__init__.py"
-
-
-          
