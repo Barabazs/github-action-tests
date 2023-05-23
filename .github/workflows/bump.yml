@@ -1,10 +1,13 @@
-on: issue_comment
+on:
+  pull_request:
+    types:
+      - closed
 
 jobs:
   pr_commented:
     # This job only runs for pull request comments
     name: PR comment
-    if: ${{ github.event.issue.pull_request }}
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
