@@ -7,17 +7,27 @@ jobs:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: |
           echo A comment on PR $NUMBER
           echo INITIAL_PR_MESSAGE: $INITIAL_PR_MESSAGE
           echo ISSUE_COMMENT: $ISSUE_COMMENT
           # remove prefix up to and including __version__ = " and last quote
           PR_VERSION=${ISSUE_COMMENT#__version__ = \"}; PR_VERSION=${PR_VERSION%\"}
-          
+          if [ ! -z "$PR_VERSION" ]; then
+              # Replace the old version with the new version in the python file
+              sed -i "s/__version__ = \".*\"/__version__ = \"$PR_VERSION\"/g" $VERSION_FILE
+              git config user.name github-actions
+              git config user.email github-actions@github.com
+              git add .
+              git commit -m "chore: bump version"
+              git push
+          fi
         env:
           NUMBER: ${{ github.event.issue.number }}
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
           ISSUE_COMMENT: ${{ github.event.comment.body }}
+          VERSION_FILE: "utils/__init__.py"
 
 
           
