@@ -28,6 +28,8 @@ jobs:
               MAJOR=${ADDR[0]}
               MINOR=${ADDR[1]}
               PATCH=${ADDR[2]}
+              # Increment the patch version
+              ((PATCH++))
           fi
         shell: bash
         
