@@ -36,7 +36,8 @@ jobs:
               NEW_VERSION="$MAJOR.$MINOR.$PATCH"
               echo "$NEW_VERSION"
           fi
-    
+        shell: bash
+        
         env:
           NUMBER: ${{ github.event.issue.number }}
           INITIAL_PR_MESSAGE: ${{ github.event.issue.body }}
