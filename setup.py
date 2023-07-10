@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
-
+from utils import __version__
 
 with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 setup(
     name="github-action-tests",
-    version="0.0.5",
+    version=__version__,
     packages=find_packages(exclude=["tests", "tests.*"]),
     install_requires=required,
     url="https://github.com/Barabazs/github-action-tests",
