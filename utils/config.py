@@ -47,7 +47,6 @@ ROOT_DATA_FOLDER = f"{ROOT_DIR}/data"
 ATTRIBUTES_FOLDER = f"{ROOT_DATA_FOLDER}/raw_attributes"
 RARITY_FOLDER = f"{ROOT_DATA_FOLDER}/rarity_data"
 MINTING_FOLDER = f"{ROOT_DATA_FOLDER}/minting_data"
-FIGURES_FOLDER = f"{ROOT_DATA_FOLDER}/figures"
 
 
 """
