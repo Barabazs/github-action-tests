@@ -42,8 +42,6 @@ jobs:
           BINANCE_ENDPOINT: ${{ secrets.BINANCE_ENDPOINT }}
           FANTOM_ENDPOINT: ${{ secrets.FANTOM_ENDPOINT }}
           IPFS_GATEWAY: ${{ secrets.IPFS_GATEWAY }}
-          MORALIS_API_KEY: ${{ secrets.MORALIS_API_KEY }}
-          OPENSEA_API_KEY: ${{ secrets.OPENSEA_API_KEY }}
           OPTIMISM_ENDPOINT: ${{ secrets.OPTIMISM_ENDPOINT }}
           POLYGON_ENDPOINT: ${{ secrets.POLYGON_ENDPOINT }}
           WEB3_PROVIDER: ${{ secrets.WEB3_PROVIDER }}
