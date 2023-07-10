@@ -44,7 +44,6 @@ POLYGON_ENDPOINT = config.get("polygon_web3_provider")
 Project folders
 """
 ROOT_DATA_FOLDER = f"{ROOT_DIR}/data"
-ATTRIBUTES_FOLDER = f"{ROOT_DATA_FOLDER}/raw_attributes"
 
 
 """
