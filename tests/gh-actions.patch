@@ -14,7 +14,6 @@
 +    "polygon_web3_provider": os.environ["POLYGON_ENDPOINT"],
 +    "web3_provider": os.environ["WEB3_PROVIDER"],
 +    "ipfs_gateway": os.environ["IPFS_GATEWAY"],
-+    "moralis_api_key": os.environ["MORALIS_API_KEY"],
 +}
  
  
