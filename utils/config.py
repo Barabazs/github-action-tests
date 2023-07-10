@@ -41,12 +41,6 @@ OPTIMISM_ENDPOINT = config.get("optimism_web3_provider")
 POLYGON_ENDPOINT = config.get("polygon_web3_provider")
 
 """
-Project folders
-"""
-ROOT_DATA_FOLDER = f"{ROOT_DIR}/data"
-
-
-"""
 Misc
 """
 IMPLEMENTATION_SLOT = (
