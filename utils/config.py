@@ -41,20 +41,6 @@ OPTIMISM_ENDPOINT = config.get("optimism_web3_provider")
 POLYGON_ENDPOINT = config.get("polygon_web3_provider")
 
 """
-Project folders
-"""
-ROOT_DATA_FOLDER = f"{ROOT_DIR}/data"
-ATTRIBUTES_FOLDER = f"{ROOT_DATA_FOLDER}/raw_attributes"
-RARITY_FOLDER = f"{ROOT_DATA_FOLDER}/rarity_data"
-MINTING_FOLDER = f"{ROOT_DATA_FOLDER}/minting_data"
-FIGURES_FOLDER = f"{ROOT_DATA_FOLDER}/figures"
-FIRST_FLIP_PROFITS_FOLDER = f"{ROOT_DATA_FOLDER}/first_flip_profits"
-FIRST_FLIP_REVENUE_FOLDER = f"{ROOT_DATA_FOLDER}/first_flip_revenue"
-PRE_REVEAL_BIDS_FOLDER = f"{ROOT_DATA_FOLDER}/pre-reveal_bids"
-PRE_REVEAL_SALES_FOLDER = f"{ROOT_DATA_FOLDER}/pre-reveal_sales"
-SALES_DATA_FOLDER = f"{ROOT_DATA_FOLDER}/sales_data"
-
-"""
 Misc
 """
 IMPLEMENTATION_SLOT = (
