@@ -45,7 +45,6 @@ Project folders
 """
 ROOT_DATA_FOLDER = f"{ROOT_DIR}/data"
 ATTRIBUTES_FOLDER = f"{ROOT_DATA_FOLDER}/raw_attributes"
-RARITY_FOLDER = f"{ROOT_DATA_FOLDER}/rarity_data"
 
 
 """
