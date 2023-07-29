@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0      
       - name: Check for label and update version
         run: |
           LABEL_NAME=$(jq --raw-output '.label.name' "$GITHUB_EVENT_PATH")
