@@ -3,10 +3,12 @@ on:
     types: [labeled, unlabeled]
 
 jobs:
-  if_merged:
-    if: ${{ github.event.pull_request.labeled.name == 'ready to merge'}}
+  merge-if-labeled:
     runs-on: ubuntu-latest
     steps:
+      - name: Check for label
+        if: contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge')
+        run: echo "time to merge"
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
