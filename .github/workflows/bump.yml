@@ -21,7 +21,9 @@ jobs:
         run: |
           current_version=$(git describe --abbrev=0 --tags)
           echo "current_version=$current_version" >> $GITHUB_ENV
-          a=(${current_version//./ })
+          # a=(${current_version//./ })
+          IFS='.' read -ra a <<< "$current_version"
+
           echo "Current version: $current_version"
           echo "Label: $label"
           echo "Array values: ${a[@]}"
