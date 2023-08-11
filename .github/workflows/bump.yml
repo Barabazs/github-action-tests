@@ -4,8 +4,7 @@ on:
 
 jobs:
   run_if_label_matches:
-    if: |
-    contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge') && 
+    if: contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge') && 
     contains(toJson(github.event.pull_request.labels.*.name), 'minor') ||  
     contains(toJson(github.event.pull_request.labels.*.name), 'major') || 
     contains(toJson(github.event.pull_request.labels.*.name), 'patch')
