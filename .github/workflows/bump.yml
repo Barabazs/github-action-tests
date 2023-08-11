@@ -23,31 +23,16 @@ jobs:
           echo "current_version=$current_version" >> $GITHUB_ENV
           # a=(${current_version//./ })
           IFS='.' read -ra a <<< "$current_version"
-          echo "Before incrementing: ${a[@]}"
+          {
+            if [ "$label" = "major" ]; then
+                ((a[0]++))
+            elif [ "$label" = "minor" ]; then
+                ((a[1]++))
+            elif [ "$label" = "patch" ]; then
+                ((a[2]++))
+            fi
+          } 2>&1
 
-          if [ "$label" = "major" ]; then
-              if [[ ${a[0]} =~ ^[0-9]+$ ]]; then
-                  ((a[0]++))
-              else
-                  echo "Error: a[0] is not a number"
-                  exit 1
-              fi
-          elif [ "$label" = "minor" ]; then
-              if [[ ${a[1]} =~ ^[0-9]+$ ]]; then
-                  ((a[1]++))
-              else
-                  echo "Error: a[1] is not a number"
-                  exit 1
-              fi
-          elif [ "$label" = "patch" ]; then
-              if [[ ${a[2]} =~ ^[0-9]+$ ]]; then
-                  ((a[2]++))
-              else
-                  echo "Error: a[2] is not a number"
-                  exit 1
-              fi
-          fi
-          
           echo "After incrementing: ${a[@]}"
           
           # echo "Current version: $current_version"
