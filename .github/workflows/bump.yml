@@ -4,10 +4,10 @@ on:
 
 jobs:
   run_if_label_matches:
-    if: contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge') && 
-    contains(toJson(github.event.pull_request.labels.*.name), 'minor') ||  
-    contains(toJson(github.event.pull_request.labels.*.name), 'major') || 
-    contains(toJson(github.event.pull_request.labels.*.name), 'patch')
+    if: contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge') && \
+    contains(toJson(github.event.pull_request.labels.*.name), 'minor') ||  \
+    contains(toJson(github.event.pull_request.labels.*.name), 'major') || \
+    contains(toJson(github.event.pull_request.labels.*.name), 'patch') 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
