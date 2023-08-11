@@ -15,17 +15,17 @@ jobs:
         run: |
           LABEL_NAME=$(jq --raw-output '.label.name' "$GITHUB_EVENT_PATH")
           if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "patch" ]]; then
-            echo "$LABEL_NAME" > label.txt
-          fi
+            echo "label=$LABEL_NAME" >> GITHUB_ENV
+          fi 
       - name: Get current version and update
         run: |
             current_version=$(git describe --abbrev=0 --tags);
             a=(${current_version//./ });
-          if [ $LABEL_NAME = "major" ]; then
+          if [ $label = "major" ]; then
             ((a[0]++))
-            elif [ $LABEL_NAME = "minor" ]; then
+            elif [ $label = "minor" ]; then
               ((a[1]++))
-            elif [ $LABEL_NAME = "patch" ]; then
+            elif [ $label = "patch" ]; then
               ((a[2]++))
             fi;
             new_version="${a[0]}.${a[1]}.${a[2]}";
