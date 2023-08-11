@@ -17,7 +17,7 @@ jobs:
           if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "patch" ]]; then
             echo "$LABEL_NAME" > label.txt
           fi
-        - name:Get current version and update
+        - name: Get current version and update
           run: |
               current_version=$(git describe --abbrev=0 --tags);
               a=(${current_version//./ });
