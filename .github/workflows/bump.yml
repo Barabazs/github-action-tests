@@ -28,7 +28,7 @@ jobs:
           elif [[ $label = "patch" ]]; then
               ((a[2]++))
           fi
-          new_version="$a[0].$a[1].$a[2]"
+          new_version="${a[0]}.${a[1]}.${a[2]}"
           echo "new_version=$new_version" >> $GITHUB_ENV
 
       - name: Commit and push if it has changed
