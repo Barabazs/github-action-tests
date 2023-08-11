@@ -22,6 +22,10 @@ jobs:
           current_version=$(git describe --abbrev=0 --tags)
           echo "current_version=$current_version" >> $GITHUB_ENV
           a=(${current_version//./ })
+          echo "Current version: $current_version"
+          echo "Label: $label"
+          echo "Array values: ${a[@]}"
+          
           if [ $label = "major" ]; then
               ((a[0]++))
           elif [ $label = "minor" ]; then
