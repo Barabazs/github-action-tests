@@ -4,11 +4,11 @@ on:
 
 jobs:
   run_if_label_matches:
-    if: github.event.label.name == 'ready to merge'
+    if: contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge|minor|major|patch')
     runs-on: ubuntu-latest
     steps:
       - name: Check for label
-        if: contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge')
+        if: !contains(toJson(github.event.pull_request.labels.*.name), 'ready to merge|minor|major|patch')
         run: echo "time to merge"
       - uses: actions/checkout@v3
         with:
