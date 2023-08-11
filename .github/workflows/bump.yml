@@ -3,7 +3,8 @@ on:
     types: [labeled, unlabeled]
 
 jobs:
-  merge-if-labeled:
+  run_if_label_matches:
+    if: github.event.label.name == 'ready to merge'
     runs-on: ubuntu-latest
     steps:
       - name: Check for label
