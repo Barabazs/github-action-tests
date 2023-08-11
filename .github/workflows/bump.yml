@@ -17,21 +17,21 @@ jobs:
           if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "patch" ]]; then
             echo "label=$LABEL_NAME" >> GITHUB_ENV
           fi 
-      # - name: Get current version and update
-      #   run: |
-      #       current_version=$(git describe --abbrev=0 --tags);
-      #       a=(${current_version//./ });
-      #     if [ $label = "major" ]; then
-      #       ((a[0]++))
-      #       elif [ $label = "minor" ]; then
-      #         ((a[1]++))
-      #       elif [ $label = "patch" ]; then
-      #         ((a[2]++))
-      #       fi;
-      #       new_version="${a[0]}.${a[1]}.${a[2]}";
+      - name: Get current version and update
+        run: |
+          current_version=$(git describe --abbrev=0 --tags);
+          a=(${current_version//./ });
+          if [ $label = "major" ]; then
+            ((a[0]++))
+            elif [ $label = "minor" ]; then
+              ((a[1]++))
+            elif [ $label = "patch" ]; then
+              ((a[2]++))
+            fi;
+          new_version="${a[0]}.${a[1]}.${a[2]}";
 
-      #       PY_INIT_FILE_PATH="utils/__init__.py"
-      #       sed -i "s/__version__ = .*/__version__ = \"${new_version}\"/g" $PY_INIT_FILE_PATH;
+          PY_INIT_FILE_PATH="utils/__init__.py"
+          sed -i "s/__version__ = .*/__version__ = \"${new_version}\"/g" $PY_INIT_FILE_PATH;
 
       - name: Commit and push if it has changed
         run: |
