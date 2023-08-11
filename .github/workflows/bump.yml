@@ -4,7 +4,7 @@ on:
 
 jobs:
   if_merged:
-    if: ${{ github.event.labeled.name == 'ready to merge'}}
+    if: ${{ github.event.pull_request.labeled.name == 'ready to merge'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
