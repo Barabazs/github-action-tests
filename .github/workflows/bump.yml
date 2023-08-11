@@ -28,10 +28,13 @@ jobs:
           elif [[ $label = "patch" ]]; then
               ((a[2]++))
           fi
-          new_version="${a[0]}.${a[1]}.${a[2]}"
+          new_version="$a[0].$a[1].$a[2]"
+          echo "new_version=$new_version" >> $GITHUB_ENV
 
+      - name: Commit and push if it has changed
+        run: |
           PY_INIT_FILE_PATH="utils/__init__.py"
-          sed -i "s/__version__ = .*/__version__ = \"${new_version}\"/g" $PY_INIT_FILE_PATH
+          sed -i "s/__version__ = .*/__version__ = \"$new_version\"/g" $PY_INIT_FILE_PATH
 
       - name: Commit and push if it has changed
         run: |
