@@ -28,11 +28,11 @@ jobs:
           echo "Label: $label"
           echo "Array values: ${a[@]}"
           
-          if [ $label = "major" ]; then
+          if [ "$label" = "major" ]; then
               ((a[0]++))
-          elif [ $label = "minor" ]; then
+          elif [ "$label" = "minor" ]; then
               ((a[1]++))
-          elif [ $label = "patch" ]; then
+          elif [ "$label" = "patch" ]; then
               ((a[2]++))
           fi
           new_version="${a[0]}.${a[1]}.${a[2]}"
