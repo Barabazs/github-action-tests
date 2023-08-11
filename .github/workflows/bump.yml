@@ -15,7 +15,7 @@ jobs:
         run: |
           LABEL_NAME=$(jq --raw-output '.label.name' "$GITHUB_EVENT_PATH")
           if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "patch" ]]; then
-            echo "label=$LABEL_NAME" >> GITHUB_ENV
+            echo "label=$LABEL_NAME" >> $GITHUB_ENV
           fi 
       - name: Get current version and update
         run: |
