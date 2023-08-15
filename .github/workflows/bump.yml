@@ -18,6 +18,7 @@ jobs:
             echo "label=$LABEL_NAME" >> $GITHUB_ENV
           fi 
       - name: Get current version and update
+        shell: bash
         run: |
           current_version=$(git describe --abbrev=0 --tags)
           a=(${current_version//./ })
