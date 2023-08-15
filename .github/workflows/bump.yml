@@ -27,7 +27,13 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m "Update version"
           git push
 
+      # - name: Merge PR
+      # run: |
+      # echo "head_ref: ${{ github.head_ref }}"
+      # echo "base_ref: ${{ github.base_ref }}"
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.base_ref }}
+
       - name: Merge PR
-        run: |
-          echo "head_ref: ${{ github.head_ref }}"
-          echo "base_ref: ${{ github.base_ref }}"
+        run: git merge ${{ github.head_ref }}
