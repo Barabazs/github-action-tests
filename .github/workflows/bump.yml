@@ -13,9 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Get current version and update
-        shell: bash
-        # working-directory: .github/scripts
-        run: ${{ github.action_path}}/bump.sh
+        run: bash ./bump.sh
 
       # - name: Commit and push if it has changed
       #   run: |
