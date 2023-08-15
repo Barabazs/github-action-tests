@@ -26,3 +26,8 @@ jobs:
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "Update version"
           git push
+
+      - name: Merge PR
+        run: |
+          echo "head_ref: ${{ github.head_ref }}"
+          echo "base_ref: ${{ github.base_ref }}"
