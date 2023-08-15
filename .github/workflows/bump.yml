@@ -38,9 +38,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git pull && gh pr merge --squash
 
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.base_ref }}
+      # - uses: actions/checkout@v3
+      # with:
+      # ref: ${{ github.base_ref }}
 
       - name: Tag new version
         run: |
