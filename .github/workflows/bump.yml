@@ -36,6 +36,7 @@ jobs:
       #     ref: ${{ github.base_ref }}
 
       - name: Merge PR
+        id: merge_pr
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git pull && gh pr merge --squash
@@ -45,4 +46,7 @@ jobs:
           ref: ${{ github.base_ref }}
 
       - name: Tag new version
-        run: git tag "$new_version" && git push --tags
+        run: |
+          if [[ ${{ steps.merge_pr.conclusion }} == "success" ]]; then
+            git tag "$new_version" && git push --tags;
+          fi
