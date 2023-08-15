@@ -11,6 +11,8 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           # fetch-depth: 0
+      - name: ls -al
+        run: ls -al
 
       - name: Get current version and update
         run: bash ./bump.sh
