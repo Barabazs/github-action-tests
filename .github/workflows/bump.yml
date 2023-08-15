@@ -20,18 +20,27 @@ jobs:
       - name: Get current version and update
         shell: bash
         run: |
-          echo "Label=: $label"
-          current_version=$(git describe --abbrev=0 --tags)
-          a=(${current_version//./ })
+          api_version=$(git describe --abbrev=0 --tags)
+          label="minor"
+          IFS='.' read -a version_split <<< "${api_version}"
+          current_major=${version_split[0]}
+          current_minor=${version_split[1]}
+          current_patch=${version_split[2]}
           if [[ $label = "major" ]]; then
-              ((a[0]++))
+            current_major=$(echo "$current_major + 1" | tr -d $'\r' | bc)
+            current_minor=0
+            current_patch=0
           elif [[ $label = "minor" ]]; then
-              ((a[1]++))
+            current_minor=$(echo "$current_minor + 1" | tr -d $'\r' | bc)
+            current_patch=0
           elif [[ $label = "patch" ]]; then
-              ((a[2]++))
+            current_patch=$(echo "$current_patch + 1" | tr -d $'\r' | bc)
           fi
-          new_version="${a[0]}.${a[1]}.${a[2]}"
-          echo "new_version=$new_version"
+          
+          
+          # new_patch=$(echo "$current_patch + 1" | tr -d $'\r' | bc)
+          new_version="${current_major}.${current_minor}.$current_patch"
+          echo "Bumping packaging patch version from $api_version to $new_version"
 
       # - name: Commit and push if it has changed
       #   run: |
