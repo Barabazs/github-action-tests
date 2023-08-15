@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
           
       - name: Get current version and update
-        run: bash -e ./.github/workflows/bumpversion.sh
+        run: bash -e "${GITHUB_WORKSPACE}"/.github/workflows/bumpversion.sh
 
       # - name: Commit and push if it has changed
       #   run: |
