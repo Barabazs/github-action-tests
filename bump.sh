@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 LABEL_NAME=$(jq --raw-output '.label.name' "$GITHUB_EVENT_PATH")
 if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "patch" ]]; then
@@ -21,6 +21,4 @@ if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "
     fi
     new_version="${current_major}.${current_minor}.$current_patch"
     echo "Bumping packaging patch version from $api_version to $new_version"
-
-
 fi
