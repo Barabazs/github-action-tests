@@ -21,33 +21,34 @@ jobs:
         run: |
           tagged_version=$(git describe --abbrev=0 --tags)
           echo "current_version=$tagged_version" >> $GITHUB_ENV
-          # a=(${current_version//./ })
-          IFS='.' read -ra a <<< "$current_version"
-          {
-            if [ "$label" = "major" ]; then
-                ((a[0]++))
-            elif [ "$label" = "minor" ]; then
-                ((a[1]++))
-            elif [ "$label" = "patch" ]; then
-                ((a[2]++))
-            fi
-          } 2>&1
+          a=(${current_version//./ })
+          # IFS='.' read -ra a <<< "$current_version"
+          # {
+          #   if [ "$label" = "major" ]; then
+          #       ((a[0]++))
+          #   elif [ "$label" = "minor" ]; then
+          #       ((a[1]++))
+          #   elif [ "$label" = "patch" ]; then
+          #       ((a[2]++))
+          #   fi
+          # } 2>&1
 
-          echo "After incrementing: ${a[@]}"
+          # echo "After incrementing: ${a[@]}"
           
           # echo "Current version: $current_version"
           # echo "Label: $label"
           # echo "Array values: ${a[@]}"
           
-          # if [ "$label" = "major" ]; then
-          #     ((a[0]++))
-          # elif [ "$label" = "minor" ]; then
-          #     ((a[1]++))
-          # elif [ "$label" = "patch" ]; then
-          #     ((a[2]++))
-          # fi
-          # new_version="${a[0]}.${a[1]}.${a[2]}"
-          # echo "new_version=$new_version" >> $GITHUB_ENV
+          if [ "$label" = "major" ]; then
+              ((a[0]++))
+          elif [ "$label" = "minor" ]; then
+              ((a[1]++))
+          elif [ "$label" = "patch" ]; then
+              ((a[2]++))
+          fi
+          new_version="${a[0]}.${a[1]}.${a[2]}"
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "$new_version"
 
       # - name: Commit and push if it has changed
       #   run: |
