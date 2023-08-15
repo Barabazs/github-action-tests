@@ -19,8 +19,8 @@ jobs:
           fi 
       - name: Get current version and update
         run: |
-          current_version=$(git describe --abbrev=0 --tags)
-          echo "current_version=$current_version" >> $GITHUB_ENV
+          tagged_version=$(git describe --abbrev=0 --tags)
+          echo "current_version=$tagged_version" >> $GITHUB_ENV
           # a=(${current_version//./ })
           IFS='.' read -ra a <<< "$current_version"
           {
