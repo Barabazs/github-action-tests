@@ -31,9 +31,11 @@ jobs:
       # run: |
       # echo "head_ref: ${{ github.head_ref }}"
       # echo "base_ref: ${{ github.base_ref }}"
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.base_ref }}
+      # - uses: actions/checkout@v3
+      #   with:
+      #     ref: ${{ github.base_ref }}
 
       - name: Merge PR
-        run: git merge $(git remote)/${{ github.head_ref }} && git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --squash
