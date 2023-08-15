@@ -21,7 +21,6 @@ jobs:
         shell: bash
         run: |
           api_version=$(git describe --abbrev=0 --tags)
-          label="minor"
           IFS='.' read -a version_split <<< "${api_version}"
           current_major=${version_split[0]}
           current_minor=${version_split[1]}
