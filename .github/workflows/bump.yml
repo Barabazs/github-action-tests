@@ -21,6 +21,9 @@ jobs:
         run: |
           tagged_version=$(git describe --abbrev=0 --tags)
           echo "current_version=$tagged_version" >> $GITHUB_ENV
+          
+          echo "Current version: $current_version"
+          
           # a=(${current_version//./ })
           IFS='.' read -ra a <<< "$current_version"
           {
@@ -33,11 +36,9 @@ jobs:
             fi
           } 2>&1
 
-          # echo "After incrementing: ${a[@]}"
-          
-          # echo "Current version: $current_version"
-          # echo "Label: $label"
-          # echo "Array values: ${a[@]}"
+          echo "After incrementing: $a"
+          echo "Label: $label"
+          echo "Array values: ${a[@]}"
           
           # if [ "$label" = "major" ]; then
           #     ((a[0]++))
@@ -48,7 +49,7 @@ jobs:
           # fi
           new_v="${a[0]}.${a[1]}.${a[2]}"
           echo "new_version=$new_v" >> $GITHUB_ENV
-          echo "$new_version"
+          echo "$new_v"
 
       # - name: Commit and push if it has changed
       #   run: |
