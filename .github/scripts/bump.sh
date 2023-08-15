@@ -21,4 +21,5 @@ if [[ "$LABEL_NAME" == "major" || "$LABEL_NAME" == "minor" || "$LABEL_NAME" == "
     fi
     new_version="${current_major}.${current_minor}.$current_patch"
     echo "Bumping packaging patch version from $api_version to $new_version"
+    echo "new_version=$new_version" >>$GITHUB_ENV
 fi
