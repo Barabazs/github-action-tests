@@ -36,4 +36,4 @@ jobs:
           ref: ${{ github.base_ref }}
 
       - name: Merge PR
-        run: git merge $(git remote)/${{ github.head_ref }}
+        run: git merge $(git remote)/${{ github.head_ref }} && git push
