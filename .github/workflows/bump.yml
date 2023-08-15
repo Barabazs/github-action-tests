@@ -12,7 +12,7 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
       - name: Get current version and update
-        run: bash -e bumpversion.sh
+        run: bash -e .github/workflows/bumpversion.sh
 
       # - name: Commit and push if it has changed
       #   run: |
