@@ -15,7 +15,7 @@ jobs:
       - name: Get current version and update
         shell: bash
         # working-directory: .github/scripts
-        run: bump.sh
+        run: ./bump.sh
 
       # - name: Commit and push if it has changed
       #   run: |
