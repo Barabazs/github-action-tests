@@ -11,11 +11,11 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-
+s
       - name: Get current version and update
         shell: bash
         # working-directory: .github/scripts
-        run: ./bump.sh
+        run: ${{ github.action_path}}/bump.sh
 
       # - name: Commit and push if it has changed
       #   run: |
