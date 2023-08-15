@@ -38,12 +38,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git pull && gh pr merge --squash
 
-      # - uses: actions/checkout@v3
-      # with:
-      # ref: ${{ github.base_ref }}
+      - uses: actions/checkout@v3
+        with:
+          ref: main
 
       - name: Tag new version
         run: |
           if [[ ${{ steps.merge_pr.conclusion }} == "success" ]]; then
-            git tag "$new_version" && git push --tags;
+            git pull && git tag "$new_version" && git push --tags;
           fi
