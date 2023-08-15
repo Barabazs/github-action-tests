@@ -8,14 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        # with:
-        #   ref: ${{ github.head_ref }}
-        #   # fetch-depth: 0
-      - name: ls -al
-        run: ls -al
-
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - name: Get current version and update
-        run: bash ./bump.sh
+        run: bash .github/scripts/bump.sh
 
       # - name: Commit and push if it has changed
       #   run: |
