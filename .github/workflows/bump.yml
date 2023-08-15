@@ -19,8 +19,8 @@ jobs:
           fi 
       - name: Get current version and update
         run: |
-          tagged_version=$(git describe --abbrev=0 --tags)
-          echo "current_version=$tagged_version" >> $GITHUB_ENV
+          current_version=$(git describe --abbrev=0 --tags)
+          # echo "current_version=$tagged_version" >> $GITHUB_ENV
           
           echo "Current version: $current_version"
           
@@ -48,7 +48,7 @@ jobs:
           #     ((a[2]++))
           # fi
           new_v="${a[0]}.${a[1]}.${a[2]}"
-          echo "new_version=$new_v" >> $GITHUB_ENV
+          # echo "new_version=$new_v" >> $GITHUB_ENV
           echo "$new_v"
 
       # - name: Commit and push if it has changed
